@@ -43,3 +43,11 @@ nav ul li:hover {
 #vintage-beats-logo span{
     text-decoration: underline;
 }
+
+
+/* STYLE THE LEFT-SIDE IMAGE */
+img {
+    width: 33%;
+    position: relative;
+    top: 200px;
+}
