@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-1: #190204;
+    --color-2: #ff8976;
+    --color-3: #cb4e47;
+    --color-4: #ffcba4;
+}
+
+.display-flex {display: flex}
+.flex-direction-column {flex-direction: column;}
+.justify-content-space-between {justify-content: space-between;}
+.justify-content-space-around {justify-content: space-between;}
+.justify-content-space-evenly {justify-content: space-evenly;}
+.align-items-center {align-items: center;}
+
+.list-style-none {list-style: none;}
