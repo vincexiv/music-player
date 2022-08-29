@@ -77,12 +77,13 @@ img {
 }
 
 .btn {
-    padding: 1em 1.3em;
-    margin: 0.1rem;
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+    margin: 0.1em;
     color: var(--color-4);
     background-color: var(--color-3);
     outline: none;
     border: none;
     cursor: pointer;
-    border-radius: 0.8em;
+    border-radius: 0.4em;
 }
