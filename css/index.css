@@ -1,5 +1,6 @@
 body {
     background-color: var(--color-4);
+    color: var(--color-3);
 }
 
 /* STYLE THE NAVBAR */
@@ -97,4 +98,15 @@ img {
     border: none;
     cursor: pointer;
     border-radius: 0.4em;
+}
+
+.btn:hover {
+    /* background-color: var(--color-1);
+    color: var(--color-3); */
+    opacity: 0.7;
+}
+
+.btn.active {
+    background-color: var(--color-1);
+    color: var(--color-3);
 }
