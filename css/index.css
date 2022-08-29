@@ -2,6 +2,8 @@ body {
     background-color: var(--color-4);
 }
 
+/* STYLE THE NAVBAR */
+
 nav {
     width: 100%;
     height: 2.5rem;
@@ -45,9 +47,42 @@ nav ul li:hover {
 }
 
 
-/* STYLE THE LEFT-SIDE IMAGE */
+/* STYLE THE MAIN CONTENT */
+#main-content {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+#main-content .inner-container {
+    width: 100%;
+}
+
+/* style the left side image */
 img {
-    width: 33%;
-    position: relative;
-    top: 200px;
+    height: 33vw;
+    display: block;
+}
+
+/* style the right side items*/
+.right-side {
+    height: 33vw;
+    width: 40%;
+}
+
+.right-side .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1em 1.3em;
+    margin: 0.1rem;
+    color: var(--color-4);
+    background-color: var(--color-3);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8em;
 }
