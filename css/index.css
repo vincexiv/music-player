@@ -67,13 +67,24 @@ img {
 /* style the right side items*/
 .right-side {
     height: 33vw;
-    width: 40%;
 }
 
 .right-side .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     flex-wrap: wrap;
+}
+
+.right-side ul {
+    list-style: none;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    color: var(--color-3);
+    font-size: 0.8rem;
+}
+
+.right-side h1 {
+    color: var(--color-1);
 }
 
 .btn {
