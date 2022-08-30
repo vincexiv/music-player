@@ -135,9 +135,9 @@ section {
     opacity: 1;
 }
 
-/* style favorites */
+/* style up-next */
 .right-item,
-.right-item #favorite-songs {
+.right-item #up-next {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -145,16 +145,20 @@ section {
 
 .right-item h1 {
     color: var(--color-1);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
-.right-item #favorite-songs {
+.right-item #up-next {
     color: var(--color-3);
+    margin-top: 0.5rem;
+}
+
+
 }
 
 /* style playlist  */
 #play-list {
-    margin: 1rem 0;
+    margin: 0.6rem 0;
     width: 100%;
     float: left;
     /* display: flex;
