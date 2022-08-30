@@ -15,7 +15,7 @@ nav {
 
 .container {
     color: var(--color-1);
-    width: 70%;
+    width: 70vw;
     min-width: 600px;
     margin: auto;
     display: flex;
@@ -51,11 +51,11 @@ section {
 
 .left-item,
 .right-item {
-    width: 90%;
+    width: 21vw;
 }
 
 .center-item {
-    width: 110%;
+    width: 28vw;
     display: grid;
     place-items: center;
 }
