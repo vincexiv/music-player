@@ -94,6 +94,7 @@ img {
     margin: 0.1em;
     color: var(--color-4);
     background-color: var(--color-3);
+    opacity: 0.7;
     outline: none;
     border: none;
     cursor: pointer;
@@ -103,10 +104,60 @@ img {
 .btn:hover {
     /* background-color: var(--color-1);
     color: var(--color-3); */
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 .btn.active {
-    background-color: var(--color-1);
-    color: var(--color-3);
+    opacity: 1;
+}
+
+/* style playlist  */
+#play-list {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#play-list #play-list-items {
+    width: 70%;
+    border: var(--color-3) solid 0.1em;
+
+    padding: 1rem;
+}
+
+.song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.song .song-name {
+    flex-basis: 65%;
+}
+
+/* style the controls  */
+.center-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 20%;
+}
+
+.center-item input {
+    width: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.center-item #controls {
+    display: flex;
+    justify-content:center;
+}
+
+.center-item #controls i {
+    margin: 0.5rem;
 }

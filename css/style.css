@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
 }
 
 :root {
@@ -9,6 +10,9 @@
     --color-2: #ff8976;
     --color-3: #cb4e47;
     --color-4: #ffcba4;
+
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .display-flex {display: flex}
