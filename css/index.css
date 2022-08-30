@@ -61,6 +61,8 @@ section {
 }
 
 .center-item #controls-and-stuff {
+    position: relative;
+    top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,48 +70,68 @@ section {
 
 #controls-and-stuff #playing-song-details {
     font-size: 0.8rem;
-    width: 18vw;
+    width: 21vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #playing-song {
-    width: 20vw;
+    width: 21vw;
     margin-bottom: 0.2rem;
 }
 
-#playing-song-details .artist {
-    width: 10vw;
+#playing-song-details .artist-name {
+    width: 20vw;
     overflow-wrap: break-word;
 }
 
 .reactions-summary {
     font-size: 0.6rem;
+    font-weight: 900;
     height: 100%;
-    width: 8vw;
+    width: 21vw;
     display: flex;
+    justify-content: left;
     gap: 0.5rem;
+    margin-top: 0.6rem;
 }
 
 #reactions {
-    width: 20vw;
-    margin-top: 2rem;
+    width: 21vw;
+    margin-top: 1.3rem;
 }
 
 .reactions-details {
     width: 100%;
-    font-size: 0.8rem;
+    height: 12vh;
+    overflow-y: scroll;
+    font-size: 0.7rem;
 }
 
 .center-item input[type = "range"] {
     width: 100%;
-    padding: 0.5rem 0;
-    background-color: var(--color-1);
+    margin-top: 0.4rem;
+    margin-bottom: 0.7rem;
 }
-/* style buttons  */
 
+.reactions-details ul.comment-input {
+    list-style: none;
+    color: var(--color-1);
+}
+
+ul.comment-input li {
+    margin-bottom: 0.2rem;
+}
+
+ul.comment-input li .commenter-name {
+    font-style: italic;
+    color: var(--color-3);
+    text-align: end;
+}
+
+/* style buttons  */
 .buttons {
-    margin-top: 2rem;
+    margin-top: 1.3rem;
 }
 
 .btn {
@@ -153,7 +175,12 @@ section {
     margin-top: 0.5rem;
 }
 
+.right-item ul {
+    list-style: none;
+}
 
+#up-next .song{
+    font-size: 0.8rem;
 }
 
 /* style playlist  */
@@ -167,17 +194,49 @@ section {
 }
 
 #play-list #play-list-items {
-    border: var(--color-3) solid 0.1em;
-    padding: 1rem;
+    border: var(--color-1) solid 0.1em;
+    background-color: var(--color-3);
+    padding: 0.8rem;
     border-radius: 0.5rem;
+    font-size: 0.7rem;
 }
 
-.song {
+#play-list-items .song-name {
+    color: var(--color-1);
+    width: 10vw;
+    height: 1.8vh;
+    overflow-x: hidden;
+}
+
+#play-list-items .artist-name {
+    width: 8vw;
+    height: 1.8vh;
+    overflow-x: hidden;
+}
+
+#play-list #play-list-items .song {
     display: flex;
     justify-content: space-between;
     align-items: center
 }
 
-.song .song-name {
-    color: var(--color-3);
+/* style comment input form  */
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#add-comment-form textarea {
+    width: 21vw;
+    height: 6vh;
+    outline: none;
+    border: var(--color-1) solid 0.5rem;
+    padding: 0 0.8rem;
+    border-radius: 0.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--color-1);
+    color: var(--color-4);
+    opacity: 0.6;
 }
