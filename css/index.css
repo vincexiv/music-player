@@ -37,3 +37,143 @@ nav ul li:hover {
 }
 
 
+/* STYLE MAIN CONTENT  */
+section {
+    display: grid;
+    place-items: center;
+    height: 80vh;
+}
+
+#main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-item,
+.right-item {
+    width: 90%;
+}
+
+.center-item {
+    width: 110%;
+    display: grid;
+    place-items: center;
+}
+
+.center-item #controls-and-stuff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#controls-and-stuff #playing-song-details {
+    font-size: 0.8rem;
+    width: 18vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#playing-song {
+    width: 20vw;
+    margin-bottom: 0.2rem;
+}
+
+#playing-song-details .artist {
+    width: 10vw;
+    overflow-wrap: break-word;
+}
+
+.reactions-summary {
+    font-size: 0.6rem;
+    height: 100%;
+    width: 8vw;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#reactions {
+    width: 20vw;
+    margin-top: 2rem;
+}
+
+.reactions-details {
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+.center-item input[type = "range"] {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: var(--color-1);
+}
+/* style buttons  */
+
+.buttons {
+    margin-top: 2rem;
+}
+
+.btn {
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+    margin: 0.1em;
+    color: var(--color-4);
+    background-color: var(--color-3);
+    opacity: 0.7;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4em;
+}
+
+.btn:hover {
+    /* background-color: var(--color-1);
+    color: var(--color-3); */
+    opacity: 0.85;
+}
+
+.btn.active {
+    opacity: 1;
+}
+
+/* style favorites */
+.right-item,
+.right-item #favorite-songs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.right-item h1 {
+    color: var(--color-1);
+    font-size: 1.3rem;
+}
+
+.right-item #favorite-songs {
+    color: var(--color-3);
+}
+
+/* style playlist  */
+#play-list {
+    margin: 1rem 0;
+    width: 100%;
+    float: left;
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+}
+
+#play-list #play-list-items {
+    border: var(--color-3) solid 0.1em;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.song .song-name {
+    color: var(--color-3);
+}
