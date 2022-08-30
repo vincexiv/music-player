@@ -240,3 +240,29 @@ form {
     color: var(--color-4);
     opacity: 0.6;
 }
+
+/* style the bottom items  */
+.bottom h1 {
+    width: 21vw;
+}
+
+.bottom .song {
+    width: 21vw;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.bottom .song-name {
+    color: var(--color-1);
+    width: 10vw;
+    height: 2vh;
+    overflow-x: hidden;
+}
+
+.bottom .artist-name {
+    width: 8vw;
+    height: 2.5vh;
+    overflow-x: hidden;
+}
