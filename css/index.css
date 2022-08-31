@@ -249,7 +249,9 @@ form {
 
 .bottom .song {
     width: 21vw;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
     display: flex;
     justify-content: space-between;
     align-items: center
@@ -257,13 +259,11 @@ form {
 
 .bottom .song-name {
     color: var(--color-1);
-    width: 10vw;
-    height: 2vh;
-    overflow-x: hidden;
+    width: 10.5vw;
+    overflow: hidden;
 }
 
 .bottom .artist-name {
-    width: 8vw;
-    height: 2.5vh;
-    overflow-x: hidden;
+    width: 9.5vw;
+    overflow: hidden;
 }
