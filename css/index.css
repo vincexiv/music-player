@@ -186,6 +186,11 @@ ul.comment-input li .commenter-name {
 
 #up-next .song{
     font-size: 0.8rem;
+    cursor: pointer;
+}
+
+#up-next .song:hover {
+    color: var(--color-1)
 }
 
 /* style playlist  */
@@ -207,7 +212,6 @@ ul.comment-input li .commenter-name {
 }
 
 #play-list-items .song-name {
-    color: var(--color-1);
     width: 10vw;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -222,9 +226,15 @@ ul.comment-input li .commenter-name {
 }
 
 #play-list #play-list-items .song {
+    color: var(--color-1);
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    cursor: pointer;
+}
+
+#play-list #play-list-items .song:hover {
+    color: var(--color-2);
 }
 
 /* style comment input form  */
@@ -254,6 +264,8 @@ form {
 }
 
 .bottom .song {
+    color: var(--color-1);
+    cursor: pointer;
     width: 21vw;
     font-size: 0.7rem;
     margin-top: 0.3rem;
@@ -263,8 +275,11 @@ form {
     align-items: center
 }
 
+.bottom .song:hover {
+    color: var(--color-3);
+}
+
 .bottom .song-name {
-    color: var(--color-1);
     width: 10.5vw;
     white-space: nowrap;
     text-overflow: ellipsis;
