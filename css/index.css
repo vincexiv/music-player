@@ -81,6 +81,10 @@ section {
     margin-bottom: 0.2rem;
 }
 
+#currently-playing .fa-heart {
+    cursor: pointer;
+}
+
 #currently-playing .song-name h1 {
     display: inline;
 }
