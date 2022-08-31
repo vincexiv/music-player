@@ -1,0 +1,215 @@
+{
+    "currentlyPlaying":{
+        "id": 1,
+        "songName": "Famous Blue Raincoat",
+        "songArtist": "Leonard Cohen",
+        "path": "./assets/songs/blues-jazz/Famous Blue Raincoat.mp3",
+        "likes": 0
+    },
+
+    "playLists": [
+        {
+            "id": 1,
+            "name": "favorites",
+            "songs":[
+                {
+                    "id": 6,
+                    "songName":"I Need to See You Again",
+                    "songArtist":"Natalia M. King.mp3",
+                    "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+                    "likes": 20
+                },
+                {
+                    "id": 4,
+                    "songName":"Do I Look Worried",
+                    "songArtist":"Tedeschi Trucks Band",
+                    "path":"./assets/songs/blues-rock/Do I look worried.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 5,
+                    "songName":"I Put A Spell On You",
+                    "songArtist":"Garou",
+                    "path":"./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
+                    "likes": 203
+                }                
+            ]
+        },
+
+        {
+            "id": 1,
+            "name": "blues-jazz",
+            "songs":[
+                {
+                    "id": 1,
+                    "songName":"Cry Me A River",
+                    "songArtist":"China Moses",
+                    "path":"./assets/songs/blues-jazz/China Moses  - Cry Me a River.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 2,
+                    "songName":"Your Heart Is Black As Night",
+                    "songArtist":"Chloé",
+                    "path":"./assets/songs/blues-jazz/Chloé - Your Heart Is As Black As Night.mp3",
+                    "likes": 123
+                },
+                {
+                    "id": 3,
+                    "songName":"Invitation To The Blues",
+                    "songArtist":"Claudia Bettinaglio",
+                    "path":"./assets/songs/blues-jazz/Claudia Bettinaglio - Invitation To The Blues.mp3",
+                    "likes": 421
+                },
+                {
+                    "id": 4,
+                    "songName":"Let's Straighten It Out",
+                    "songArtist":"Dave Riley",
+                    "path":"./assets/songs/blues-jazz/Dave Riley - Let's Straighten It Out.mp3",
+                    "likes": 314
+                },
+                {
+                    "id": 5,
+                    "songName":"I Remember You",
+                    "songArtist":"Eilen Jewell",
+                    "path":"./assets/songs/blues-jazz/Eilen Jewell - I Remember You.mp3",
+                    "likes": 157
+                },
+                {
+                    "id": 6,
+                    "songName":"I Need to See You Again",
+                    "songArtist":"Natalia M. King.mp3",
+                    "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+                    "likes": 20
+                },
+                {
+                    "id": 7,
+                    "songName":"She's Crazy",
+                    "songArtist":"JT Coldfire",
+                    "path":"./assets/songs/blues-jazz/JT Coldfire - She_s Crazy.m4a",
+                    "likes": 129
+                },
+                {
+                    "id": 8,
+                    "songName":"Big Bad Handsome Man",
+                    "songArtist":"Linda Carone",
+                    "path":"./assets/songs/blues-jazz/Linda Carone - Big Bad Handsome Man.mp3",
+                    "likes": 234
+                },
+                {
+                    "id": 9,
+                    "songName":"Damn Your Eyes",
+                    "songArtist":"Luce Dufault",
+                    "path":"./assets/songs/blues-jazz/Luce Dufault - Damn Your Eyes.mp3",
+                    "likes": 245
+                },
+                {
+                    "id": 10,
+                    "songName":"I Love You More You'll Ever Know",
+                    "songArtist":"Oli Brown",
+                    "path":"./assets/songs/blues-jazz/Oli Brown - I Love You More You'll Ever Know.mp3",
+                    "likes": 326
+                }
+            ],
+            "comments":[
+                {
+                    "id": 1,
+                    "songId": 1,
+                    "commenterName": "Romulo",
+                    "content": "Awesome!"                    
+                },
+                {
+                    "id": 2,
+                    "songId": 10,
+                    "commenterName": "Jeniffer",
+                    "content": "Heard this song at a friend's wedding, didn't know it would become such a huge part of my life"
+                }
+            ]
+        },
+
+        {
+            "id": 1,
+            "name": "blues-rock",
+            "songs":[
+                {
+                    "id": 1,
+                    "songName":"A Virus Called The Blues",
+                    "songArtist":"China Moses",
+                    "path":"./assets/songs/blues-rock/Billy Jenkins - A Virus Called The Blues.m4a",
+                    "likes": 203
+                },
+                {
+                    "id": 2,
+                    "songName":"Vincent Price Blues",
+                    "songArtist":"ZZ Top",
+                    "path":"./assets/songs/blues-rock/20. Vincent Price Blues.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 3,
+                    "songName":"Over You",
+                    "songArtist":"ZZ Top",
+                    "path":"./assets/songs/blues-rock/26. Over You.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 4,
+                    "songName":"Do I Look Worried",
+                    "songArtist":"Tedeschi Trucks Band",
+                    "path":"./assets/songs/blues-rock/Do I look worried.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 5,
+                    "songName":"I Put A Spell On You",
+                    "songArtist":"Garou",
+                    "path":"./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 6,
+                    "songName":"I Need Time",
+                    "songArtist":"China Moses",
+                    "path":"./assets/songs/blues-rock/I Need Time CD 1 TRACK 3 (320).mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 7,
+                    "songName":"I'm In A Dangerous Mood",
+                    "songArtist":"BB. King ft. Joe Cocker",
+                    "path":"./assets/songs/blues-rock/I'm in a dangerous mood.m4a",
+                    "likes": 203
+                },
+                {
+                    "id": 8,
+                    "songName":"You Were Never Mine",
+                    "songArtist":"Janiva Magness",
+                    "path":"./assets/songs/blues-rock/Janiva Magness You Were Never Mine.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 9,
+                    "songName":"Too Afraid to Love You",
+                    "songArtist":"The Black Keys",
+                    "path":"./assets/songs/blues-rock/The Black Keys - Too Afraid to Love You.mp3",
+                    "likes": 203
+                },
+                {
+                    "id": 10,
+                    "songName":"Welcome To The Human Race",
+                    "songArtist":"Walter Trout",
+                    "path":"./assets/songs/blues-rock/The Outsider CD 1 TRACK 1 (320).mp3",
+                    "likes": 203
+                }
+            ],
+            "comments": [
+                {
+                    "id": 1,
+                    "songId": 7,
+                    "commenterName": "Joe",
+                    "content": "I'm really in a dangerous mood"
+                }
+            ]
+        }
+    ]
+}
