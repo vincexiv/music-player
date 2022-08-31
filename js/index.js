@@ -1,6 +1,33 @@
 document.addEventListener('DOMContentLoaded', () =>{
     
+    handleCommentForm()
+    function handleCommentForm(){
+        const commentForm = document.getElementById('add-comment-form')
+        commentForm.addEventListener('submit', e => {
+            e.preventDefault()
+
+            const newComment = e.target.querySelector('textarea').value
+            addCommentToDom(newComment)
+            updateCommentCount()
+
+            commentForm.reset()
+        })
+    }
+
+    function addCommentToDom(commentInput){
+        const newComment = document.createElement("li")
+        newComment.innerHTML = `<p>${commentInput}</p>
+                                <span class="commenter-name">Vincent</span>`//at this point, it assumes I'm logged in as "Vincent"
+
+        document.getElementById('comment-list').appendChild(newComment)        
+    }
+
+    function updateCommentCount(){
+        const commentCount = document.querySelector('#comment-count .count')
+        commentCount.textContent = parseInt(commentCount.textContent) + 1
+    }
     
+
     const favoriteSong = document.getElementById('favorite')
     favoriteSong.addEventListener('click', e => {
         toggleHeartAppearance(e.target)
