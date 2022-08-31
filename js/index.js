@@ -30,18 +30,45 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const favoriteSong = document.getElementById('favorite')
     favoriteSong.addEventListener('click', e => {
-        toggleHeartAppearance(e.target)
+
+        let increaseLikeCount = false
+        if(personLikesThisSong(e.target)){
+            unlikeSong(e.target)
+        }else{
+            likeSong(e.target)
+            increaseLikeCount = true
+        }
+
+        updateLikeCount(increaseLikeCount)
     })
 
-    function toggleHeartAppearance(heartIcon){
+    function personLikesThisSong(heartIcon){
+        return heartIcon.classList.contains('fa-solid'); 
+    }
+
+    function likeSong(heartIcon){
         if(heartIcon.classList.contains('fa-regular')){
             heartIcon.classList.remove('fa-regular')
             heartIcon.classList.add('fa-solid')
-        }else if(heartIcon.classList.contains('fa-solid')){
+        }
+    }
+
+    function unlikeSong(heartIcon){
+        if(heartIcon.classList.contains('fa-solid')){
             heartIcon.classList.remove('fa-solid')
             heartIcon.classList.add('fa-regular')
         }
     }
+
+    function updateLikeCount(increaseLikeCount){
+        const count = document.querySelector('#like-count .count')        
+        if(increaseLikeCount){
+            count.textContent = parseInt(count.textContent) + 1
+        }else{
+            count.textContent = parseInt(count.textContent) - 1
+        }
+    }
+
 
     const songs = Array.from(document.getElementsByClassName('song'))
     songs.forEach(song => {
