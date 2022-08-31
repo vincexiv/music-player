@@ -25,7 +25,7 @@ nav {
 }
 
 nav ul {
-    color: var(--color-3);
+    color: white;
 }
 
 nav ul li {
@@ -33,7 +33,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-    color: var(--color-2);
+    color: var(--color-3);
     cursor: pointer;
 }
 
