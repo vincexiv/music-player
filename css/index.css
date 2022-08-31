@@ -119,16 +119,16 @@ section {
     margin-bottom: 0.7rem;
 }
 
-.reactions-details ul.comment-input {
+.reactions-details ul#comment-list {
     list-style: none;
     color: var(--color-1);
 }
 
-ul.comment-input li {
+ul#comment-list li {
     margin-bottom: 0.4rem;
 }
 
-ul.comment-input li .commenter-name {
+ul#comment-list li .commenter-name {
     font-style: italic;
     color: var(--color-3);
     text-align: end;
