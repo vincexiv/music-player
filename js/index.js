@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () =>{
     
+    // Comment form ------------------------------------------------------
+
     handleCommentForm()
     function handleCommentForm(){
         const commentForm = document.getElementById('add-comment-form')
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         commentCount.textContent = parseInt(commentCount.textContent) + 1
     }
     
+
+    // favorites (heart) button ------------------------------------------
 
     const favoriteSong = document.getElementById('favorite')
     favoriteSong.addEventListener('click', e => {
@@ -70,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
+    // Song list item ----------------------------------------------------
+
     const songs = Array.from(document.getElementsByClassName('song'))
     songs.forEach(song => {
         song.addEventListener('click', e => {
@@ -79,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     })
 
     function moveToCurrentlyPlaying(song){
-        //This functions expects an <li></li>
+        //This functions expects an <li></li> (not necessarily empty)
 
         const currentlyPlaying = document.getElementById('currently-playing')
         
@@ -94,9 +100,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
         songsToPlayNext.innerHTML = ''
         let sibling = song
-        console.log("sibling: ", sibling)
         for(let i = 0; i < 3; i++){
-            console.log("sibling: ", sibling)
             const nextSibling = document.createElement('li')
             nextSibling.classList.add('song')
             if(sibling.nextElementSibling){
@@ -113,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
+    // playlist buttons --------------------------------------------------
 
     const playlistButtons = document.getElementById('playlist-buttons')
     Array.from(playlistButtons.children).forEach(playlistChoice => {
