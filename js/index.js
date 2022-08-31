@@ -15,3 +15,46 @@ document.addEventListener('DOMContentLoaded', () =>{
             heartIcon.classList.add('fa-regular')
         }
     }
+
+    const songs = Array.from(document.getElementsByClassName('song'))
+    songs.forEach(song => {
+        song.addEventListener('click', e => {
+            moveToCurrentlyPlaying(song)
+            updateUpNext(song)
+        })
+    })
+
+    function moveToCurrentlyPlaying(song){
+        //This functions expects an <li></li>
+
+        const currentlyPlaying = document.getElementById('currently-playing')
+        
+        currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
+        currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
+    }
+
+    function updateUpNext(song){
+        //updates list of songs marked to play next
+
+        const songsToPlayNext = document.getElementById('up-next')
+
+        songsToPlayNext.innerHTML = ''
+        let sibling = song
+        console.log("sibling: ", sibling)
+        for(let i = 0; i < 3; i++){
+            console.log("sibling: ", sibling)
+            const nextSibling = document.createElement('li')
+            nextSibling.classList.add('song')
+            if(sibling.nextElementSibling){
+                nextSibling.innerHTML = sibling.nextElementSibling.innerHTML
+                sibling = sibling.nextElementSibling
+            }else{            
+                nextSibling.innerHTML = sibling.parentElement.firstElementChild.innerHTML
+                sibling = sibling.parentElement.firstElementChild
+            }
+
+            nextSibling.querySelector('.artist-name').classList.add('display-none')
+            songsToPlayNext.append(nextSibling)
+        }
+    }
+})
