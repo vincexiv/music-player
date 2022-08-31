@@ -76,9 +76,13 @@ section {
     justify-content: center;
 }
 
-#playing-song {
+#currently-playing .song-name {
     width: 21vw;
     margin-bottom: 0.2rem;
+}
+
+#currently-playing .song-name h1 {
+    display: inline;
 }
 
 #playing-song-details .artist-name {
