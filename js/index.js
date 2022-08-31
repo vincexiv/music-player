@@ -111,4 +111,24 @@ document.addEventListener('DOMContentLoaded', () =>{
             songsToPlayNext.append(nextSibling)
         }
     }
+
+
+
+    const playlistButtons = document.getElementById('playlist-buttons')
+    Array.from(playlistButtons.children).forEach(playlistChoice => {
+        playlistChoice.addEventListener('click', e=> {
+            switchActiveButton(e.target, playlistButtons)
+        })
+    })
+    console.log("playlist buttons: ", playlistButtons.children)
+
+    function switchActiveButton(buttonToMakeActive, allPlaylistButtons){
+        buttonToMakeActive.classList.add('active')
+
+        Array.from(allPlaylistButtons.children).forEach(button => {
+            if(button.id !== buttonToMakeActive.id){
+                button.classList.remove('active')
+            }
+        })
+    }
 })
