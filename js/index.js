@@ -237,21 +237,33 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // playing the songs -------------------------------------------------
 
-
-
-    function playSong(pathToSong){
-        const audio  = new Audio(`${pathToSong}`)
+    (function playSong(){
+        pathToSong = './assets/music/blues-jazz/Eilen Jewell - I Remember You.mp3'
+        const audio  = new Audio()
+        audio.src = pathToSong
         const playButton = document.getElementById('play-pause-button')
         playButton.addEventListener('click', e => {
             if(playButton.classList.contains('fa-circle-play')){
                 playButton.classList.remove('fa-circle-play')
                 playButton.classList.add('fa-circle-pause')
                 audio.play()
+                showSongProgress(audio)
             }else {
                 playButton.classList.remove('fa-circle-pause')
                 playButton.classList.add('fa-circle-play')
                 audio.pause()                
             }
         })
+    })()
+    
+    function showSongProgress(audio){
+        document.getElementById('song-progress').end = parseInt(audio.duration)
+        
+        console.log(document.getElementById('song-progress'))
+        
+        document.getElementById('song-progress').value = 0
+        setInterval(() =>{
+            document.getElementById('song-progress').value = audio.currentTime/audio.duration * 100
+        }, 1)
     }
 })
