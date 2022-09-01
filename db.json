@@ -1,13 +1,5 @@
 {
-    "currentlyPlaying":{
-        "id": 1,
-        "songName": "Famous Blue Raincoat",
-        "songArtist": "Leonard Cohen",
-        "path": "./assets/songs/blues-jazz/Famous Blue Raincoat.mp3",
-        "likes": 0
-    },
-
-    "recommendedForYou": [
+     "recommendedForYou": [
         {
             "id": 1,
             "songName":"Why Does It Take So Long To Say Goodbye",
@@ -70,7 +62,7 @@
     "favoritesComments": [
         {
             "id": 1,
-            "favoritesId": 1,
+            "favoriteId": 1,
             "commenterName": "Rachel",
             "content": "Am so emoshonoo 😭😭😭"                    
         }
