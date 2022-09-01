@@ -55,10 +55,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     function updateBanner(songData){
+        const banner = document.getElementById('currently-playing-song-banner')
+
         if(songData.banner){
-            const banner = document.getElementById('currently-playing-song-banner')
             banner.src = songData.banner
             banner.alt = songData.songArtist
+        }else{
+            banner.src('./assets/images/Buddy Guy.png')  //buddy guy with the guitar is the default
+            banner.alt = 'Buddy Guy with the guitar'
         }
     }
 
