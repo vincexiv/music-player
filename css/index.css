@@ -47,7 +47,7 @@ nav ul li:hover {
 section {
     display: grid;
     place-items: center;
-    height: 41rem;
+    height: 34rem;
 }
 
 .container #main-content {
@@ -306,4 +306,13 @@ form {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 7rem;
+    background-color: var(--color-1);
+    opacity: 0.7;
 }
