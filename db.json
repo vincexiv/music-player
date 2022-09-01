@@ -12,17 +12,24 @@
             "id": 1,
             "songName":"Why Does It Take So Long To Say Goodbye",
             "songArtist":"Joe Bonamassa",
-            "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
-            "banner": "",
+            "path":"./assets/songs/recommended for you/Joe Bonamassa - Why Does It Take So Long To Say Goodbye.mp3",
+            "banner": "./assets/images/Buddy Guy.png",
             "likes": 20
         }, 
-
         {
-            "id": 1,
-            "songName":"I Need to See You Again",
-            "songArtist":"Natalia M. King",
-            "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+            "id": 2,
+            "songName":"Don't Write Me Off",
+            "songArtist":"Mighty Sam McClain",
+            "path":"./assets/songs/blues-jazz/Don't Write Me Off.mp3",
             "banner": "",
+            "likes": 20
+        },
+        {
+            "id": 3,
+            "songName":"Feels Like Rain",
+            "songArtist":"Buddy Guy",
+            "path":"./assets/songs/blues-jazz/03 Feels Like Rain.mp3",
+            "banner": "./assets/images/RCA_BONAMASSA.png",
             "likes": 20
         }         
     ],
