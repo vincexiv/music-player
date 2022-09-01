@@ -47,7 +47,7 @@ nav ul li:hover {
 section {
     display: grid;
     place-items: center;
-    height: 32.85rem;
+    height: 41rem;
 }
 
 .container #main-content {
@@ -62,7 +62,7 @@ section {
 }
 
 .center-item {
-    width: 24;
+    width: 24rem;
     display: grid;
     place-items: center;
 }
