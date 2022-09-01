@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () =>{
                     updateBanner(songData)
                     updateDomComments(playlistName, songData.id)
                     loadLikes(songData.likes)
+
+                    playSong(songData.path)
                 })
 
                 if(firstTimeLoadingThePage){
@@ -160,11 +162,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     // Song list item ----------------------------------------------------
 
     function moveToCurrentlyPlaying(song){
-        console.log("song: ", song)
         //This functions expects an <li></li> (not necessarily empty)
 
         const currentlyPlaying = document.getElementById('currently-playing')
-        console.log("moving to currently playing: ", currentlyPlaying)
 
         currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
         currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
@@ -233,5 +233,21 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // playing the songs -------------------------------------------------
 
-    
+
+
+    function playSong(pathToSong){
+        const audio  = new Audio(`${pathToSong}`)
+        const playButton = document.getElementById('play-pause-button')
+        playButton.addEventListener('click', e => {
+            if(playButton.classList.contains('fa-circle-play')){
+                playButton.classList.remove('fa-circle-play')
+                playButton.classList.add('fa-circle-pause')
+                audio.play()
+            }else {
+                playButton.classList.remove('fa-circle-pause')
+                playButton.classList.add('fa-circle-play')
+                audio.pause()                
+            }
+        })
+    }
 })
