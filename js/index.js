@@ -3,12 +3,13 @@ const apiHost = 'http://localhost:3000'
 document.addEventListener('DOMContentLoaded', () =>{
 
     getAndLoadPlaylist("favorites")//by default, the "favorites playlist should be displayed"
-    let firstTimeLoadingThePage = true
+    let firstTimeLoadingThePage = true //This and the firstSong variable below are used to make the first song in the favorites playlist to be put on "currentlyPlaying" when the page loads
 
     function getAndLoadPlaylist(playlistName, listId = 'play-list-items'){
         fetch(`${apiHost}/${playlistName}`)
         .then(result => result.json())
         .then(data => {
+            let firstSong;
             data.forEach(songData => {
                 const song = createPlayListItem(songData, playlistName)
                                
@@ -21,10 +22,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                 })
 
                 if(firstTimeLoadingThePage){
-                    song.click()
-                    firstTimeLoadingThePage = false //Get the first song in the favorites playlist to be on the "currently playing" when the page loads
+                    firstSong = song
+                    firstTimeLoadingThePage = false 
                 }
             })
+            firstSong.click() 
         })
     }
     
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
             const newComment = e.target.querySelector('textarea').value
             addCommentToDom(newComment)
-            updateCommentCount()
+            updateCommentCount(newComment)
 
             commentForm.reset()
         })
