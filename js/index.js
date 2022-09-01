@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                     updateUpNext(song)
                     updateBanner(songData)
                     updateDomComments(playlistName, songData.id)
+                    loadLikes(songData.likes)
                 })
 
                 if(firstTimeLoadingThePage){
@@ -26,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () =>{
                     firstTimeLoadingThePage = false 
                 }
             })
-            firstSong.click() 
+
+            if(firstSong){
+                firstSong.click() 
+            }
         })
     }
     
@@ -66,8 +70,12 @@ document.addEventListener('DOMContentLoaded', () =>{
             songComments.forEach(comment => {
                 addCommentToDom(comment)
             })
-            updateCommentCount(songComments.length)
+            loadCommentCount(songComments.length)
         })
+    }
+
+    function loadLikes(likeCount){
+        document.querySelector('#like-count .count').textContent = likeCount
     }
 
 
@@ -80,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             e.preventDefault()
 
             const newComment = e.target.querySelector('textarea').value
-            addCommentToDom(newComment)
-            updateCommentCount(newComment)
+            addCommentToDom({commenterName: "Vincent", content: newComment})
+            addOneToCommentCount(newComment)
 
             commentForm.reset()
         })
@@ -95,8 +103,13 @@ document.addEventListener('DOMContentLoaded', () =>{
         document.getElementById('comment-list').appendChild(newComment)        
     }
 
-    function updateCommentCount(newCount){
+    function loadCommentCount(newCount){
         document.querySelector('#comment-count .count').textContent = newCount
+    }
+
+    function addOneToCommentCount(){
+        const currentCount = parseInt(document.querySelector('#comment-count .count').textContent)
+        loadCommentCount(currentCount + 1)
     }
     
 
@@ -135,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     function updateLikeCount(increaseLikeCount){
-        const count = document.querySelector('#like-count .count')        
+        const count = document.querySelector('#like-count .count')
         if(increaseLikeCount){
             count.textContent = parseInt(count.textContent) + 1
         }else{
@@ -147,10 +160,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     // Song list item ----------------------------------------------------
 
     function moveToCurrentlyPlaying(song){
+        console.log("song: ", song)
         //This functions expects an <li></li> (not necessarily empty)
 
         const currentlyPlaying = document.getElementById('currently-playing')
-        
+        console.log("moving to currently playing: ", currentlyPlaying)
+
         currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
         currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
     }
@@ -179,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    // playlist ----------------------------------------------------------
+    // playlist button ---------------------------------------------------
 
     const playlistButtons = document.getElementById('playlist-buttons')
     Array.from(playlistButtons.children).forEach(playlistChoice => {
@@ -214,4 +229,9 @@ document.addEventListener('DOMContentLoaded', () =>{
             }
         })
     }
+
+
+    // playing the songs -------------------------------------------------
+
+    
 })
