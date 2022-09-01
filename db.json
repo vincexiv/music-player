@@ -13,7 +13,7 @@
             "songName":"Why Does It Take So Long To Say Goodbye",
             "songArtist":"Joe Bonamassa",
             "path":"./assets/songs/recommended for you/Joe Bonamassa - Why Does It Take So Long To Say Goodbye.mp3",
-            "banner": "./assets/images/Buddy Guy.png",
+            "banner": "./assets/images/RCA_BONAMASSA.png",
             "likes": 643
         }, 
         {
@@ -29,7 +29,7 @@
             "songName":"Feels Like Rain",
             "songArtist":"Buddy Guy",
             "path":"./assets/songs/blues-jazz/03 Feels Like Rain.mp3",
-            "banner": "./assets/images/RCA_BONAMASSA.png",
+            "banner": "./assets/images/Buddy Guy.png",
             "likes": 532
         }         
     ],
@@ -37,6 +37,7 @@
     "favorites": [
         {
             "id": 1,
+            "songPlaylist": "bluesJazz",
             "songPlaylistId": 6,
             "songName":"I Need to See You Again",
             "songArtist":"Natalia M. King",
@@ -46,6 +47,7 @@
         },
         {
             "id": 3,
+            "songPlaylist": "bluesRock",
             "songPlaylistId": 4,
             "songName":"Do I Look Worried",
             "songArtist":"Tedeschi Trucks Band",
@@ -55,6 +57,7 @@
         },
         {
             "id": 3,
+            "songPlaylist": "bluesRock",
             "songPlaylistId": 5,
             "songName":"I Put A Spell On You",
             "songArtist":"Garou",
