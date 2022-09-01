@@ -1,5 +1,51 @@
+const apiHost = 'http://localhost:3000'
+
 document.addEventListener('DOMContentLoaded', () =>{
+
+    getAndLoadPlaylist("favorites")//by default, the "favorites playlist should be displayed"
+
+    function getAndLoadPlaylist(playlistName, listId = 'play-list-items'){
+        if(playlistName == 'recommendedForYou'){console.log('we are heer')}
+        fetch(`${apiHost}/${playlistName}`)
+        .then(result => result.json())
+        .then(data => {
+            data.forEach(songData => {
+                const song = createPlayListItem(songData)
+                addSongToDom(song, listId)
+                song.addEventListener('click', e => {
+                    moveToCurrentlyPlaying(song)
+                    updateUpNext(song)
+                    updateBanner(songData)
+                })
+            })
+        })
+    }
     
+    function createPlayListItem(songData){
+        const playListItem = document.createElement('li')
+        playListItem.classList.add('song')
+        playListItem.id = songData.id
+
+        playListItem.innerHTML = `<p class="song-name">${songData.songName}</p>
+            <div class="song-details">
+            <p class="artist-name">${songData.songArtist}</p>
+        </div>`
+
+        return playListItem
+    }
+
+    function addSongToDom(song, listId){
+        document.getElementById(listId).appendChild(song)
+    }
+
+    function updateBanner(songData){
+        if(songData.banner){
+            const banner = document.getElementById('currently-playing-song-banner')
+            banner.src = songData.banner
+            banner.alt = songData.songArtist
+        }
+    }
+
     // Comment form ------------------------------------------------------
 
     handleCommentForm()
@@ -76,14 +122,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // Song list item ----------------------------------------------------
 
-    const songs = Array.from(document.getElementsByClassName('song'))
-    songs.forEach(song => {
-        song.addEventListener('click', e => {
-            moveToCurrentlyPlaying(song)
-            updateUpNext(song)
-        })
-    })
-
     function moveToCurrentlyPlaying(song){
         //This functions expects an <li></li> (not necessarily empty)
 
@@ -117,15 +155,32 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    // playlist buttons --------------------------------------------------
+    // playlist ----------------------------------------------------------
 
     const playlistButtons = document.getElementById('playlist-buttons')
     Array.from(playlistButtons.children).forEach(playlistChoice => {
         playlistChoice.addEventListener('click', e=> {
+            console.log("button clicked: ", e.target)
+            emptyPlaylistOnDisplay()
+
+            if(e.target.id === 'blues-rock-playlist'){
+                getAndLoadPlaylist('bluesRock')
+            }else if(e.target.id === 'favorites-playlist'){
+                getAndLoadPlaylist('favorites')
+            }else if(e.target.id === 'blues-jazz-playlist'){
+                getAndLoadPlaylist('bluesJazz')
+            }
+            //We are not processing the "more" button for now
+
             switchActiveButton(e.target, playlistButtons)
         })
     })
-    console.log("playlist buttons: ", playlistButtons.children)
+    
+    getAndLoadPlaylist('recommendedForYou', 'recommended-for-you')
+
+    function emptyPlaylistOnDisplay(){
+        document.getElementById('play-list-items').innerHTML = ''
+    }
 
     function switchActiveButton(buttonToMakeActive, allPlaylistButtons){
         buttonToMakeActive.classList.add('active')
