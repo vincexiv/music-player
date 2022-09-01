@@ -46,7 +46,7 @@
             "likes": 352
         },
         {
-            "id": 3,
+            "id": 2,
             "songPlaylist": "bluesRock",
             "songPlaylistId": 4,
             "songName":"Do I Look Worried",
@@ -64,8 +64,18 @@
             "path":"./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
             "banner": "",
             "likes": 155
-        }                
+        }
     ],
+
+    "favoritesComments": [
+        {
+            "id": 1,
+            "favoritesId": 1,
+            "commenterName": "Rachel",
+            "content": "Am so emoshonoo 😭😭😭"                    
+        }
+    ],
+
 
     "bluesJazz": [
         {
@@ -158,11 +168,24 @@
         },
         {
             "id": 2,
+            "bluesJazzId": 7,
+            "commenterName": "Antonio",
+            "content": "I think of her every time I hear this song!"                    
+        },
+        {
+            "id": 3,
             "blusJazzId": 10,
             "commenterName": "Jeniffer",
             "content": "Heard this song at a friend's wedding, didn't know it would become such a huge part of my life"
+        },
+        {
+            "id": 1,
+            "bluesJazzId": 6,
+            "commenterName": "Rachel",
+            "content": "Am so emoshonoo 😭😭😭"                    
         }
     ],
+
 
     "bluesRock": [
         {
@@ -247,9 +270,15 @@
     "bluesRockComments": [
         {
             "id": 1,
-            "blusRockId": 7,
+            "bluesRockId": 7,
             "commenterName": "Joe",
             "content": "I'm really in a dangerous mood"
+        },
+        {
+            "id": 1,
+            "bluesRockId": 7,
+            "commenterName": "Vincent",
+            "content": "Heard this song at a friend's wedding, never thought it would become such a huge part of my life"
         }
     ]
 }
