@@ -16,8 +16,8 @@ nav {
 
 .container {
     color: var(--color-1);
-    width: 70vw;
-    min-width: 600px;
+    width: 60rem;
+    min-width: 37.5rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -47,28 +47,29 @@ nav ul li:hover {
 section {
     display: grid;
     place-items: center;
-    height: 80vh;
+    height: 32.85rem;
 }
 
-#main-content {
+.container #main-content {
     display: flex;
+    width: 100%;
     justify-content: space-between;
 }
 
 .left-item,
 .right-item {
-    width: 21vw;
+    width: 18rem;
 }
 
 .center-item {
-    width: 28vw;
+    width: 24;
     display: grid;
     place-items: center;
 }
 
 .center-item #controls-and-stuff {
     position: relative;
-    top: 5vh;
+    top: 2.05;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,13 +77,13 @@ section {
 
 #controls-and-stuff #playing-song-details {
     font-size: 0.8rem;
-    width: 21vw;
+    width: 18rem;
     display: flex;
     justify-content: center;
 }
 
 #currently-playing .song-name {
-    width: 21vw;
+    width: 18rem;
     margin-bottom: 0.2rem;
 }
 
@@ -95,7 +96,7 @@ section {
 }
 
 #playing-song-details .artist-name {
-    width: 20vw;
+    width: 17.15;
     overflow-wrap: break-word;
 }
 
@@ -103,7 +104,7 @@ section {
     font-size: 0.6rem;
     font-weight: 900;
     height: 100%;
-    width: 21vw;
+    width: 18rem;
     display: flex;
     justify-content: left;
     gap: 0.5rem;
@@ -111,13 +112,13 @@ section {
 }
 
 #reactions {
-    width: 21vw;
+    width: 18rem;
     margin-top: 1.3rem;
 }
 
 .reactions-details {
     width: 100%;
-    height: 12vh;
+    height: 4.93rem;
     overflow-y: scroll;
     font-size: 0.7rem;
 }
@@ -149,7 +150,7 @@ ul#comment-list li .commenter-name {
 }
 
 .btn {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 0.4em 0.6em;
     margin: 0.1em;
     color: var(--color-4);
@@ -221,14 +222,14 @@ ul#comment-list li .commenter-name {
 }
 
 #play-list-items .song-name {
-    width: 10vw;
+    width: 8.58rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden;
 }
 
 #play-list-items .artist-name {
-    width: 8vw;
+    width: 6.86rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden;
@@ -254,8 +255,8 @@ form {
 }
 
 #add-comment-form textarea {
-    width: 21vw;
-    height: 6vh;
+    width: 18rem;
+    height: 2.46rem;
     outline: none;
     border: var(--color-1) solid 0.5rem;
     padding: 0 0.8rem;
@@ -269,13 +270,13 @@ form {
 
 /* style the bottom items  */
 .bottom h1 {
-    width: 21vw;
+    width: 18rem;
 }
 
 .bottom .song {
     color: var(--color-1);
     cursor: pointer;
-    width: 21vw;
+    width: 18rem;
     font-size: 0.7rem;
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
@@ -289,14 +290,14 @@ form {
 }
 
 .bottom .song-name {
-    width: 10.5vw;
+    width: 9rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .bottom .artist-name {
-    width: 9.5vw;
+    width: 8.15rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
