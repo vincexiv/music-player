@@ -3,27 +3,35 @@ const apiHost = 'http://localhost:3000'
 document.addEventListener('DOMContentLoaded', () =>{
 
     getAndLoadPlaylist("favorites")//by default, the "favorites playlist should be displayed"
+    let firstTimeLoadingThePage = true
 
     function getAndLoadPlaylist(playlistName, listId = 'play-list-items'){
-        if(playlistName == 'recommendedForYou'){console.log('we are heer')}
         fetch(`${apiHost}/${playlistName}`)
         .then(result => result.json())
         .then(data => {
             data.forEach(songData => {
-                const song = createPlayListItem(songData)
+                const song = createPlayListItem(songData, playlistName)
+                               
                 addSongToDom(song, listId)
                 song.addEventListener('click', e => {
                     moveToCurrentlyPlaying(song)
                     updateUpNext(song)
                     updateBanner(songData)
+                    updateDomComments(playlistName, songData.id)
                 })
+
+                if(firstTimeLoadingThePage){
+                    song.click()
+                    firstTimeLoadingThePage = false //Get the first song in the favorites playlist to be on the "currently playing" when the page loads
+                }
             })
         })
     }
     
-    function createPlayListItem(songData){
+    function createPlayListItem(songData, playlistName='favorites'){
         const playListItem = document.createElement('li')
         playListItem.classList.add('song')
+        playListItem.classList.add(playlistName)
         playListItem.id = songData.id
 
         playListItem.innerHTML = `<p class="song-name">${songData.songName}</p>
@@ -46,6 +54,21 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
     }
 
+    function updateDomComments(playlistName, songId){
+        fetch(`${apiHost}/${playlistName}/${songId}?_embed=${playlistName}Comments`)
+        .then(result => result.json())
+        .then(data => {
+            const songComments = data[`${playlistName}Comments`]
+            document.getElementById('comment-list').innerHTML = ''//first clear current comments being displayed
+
+            songComments.forEach(comment => {
+                addCommentToDom(comment)
+            })
+            updateCommentCount(songComments.length)
+        })
+    }
+
+
     // Comment form ------------------------------------------------------
 
     handleCommentForm()
@@ -62,17 +85,16 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
     }
 
-    function addCommentToDom(commentInput){
+    function addCommentToDom(commentObject){
         const newComment = document.createElement("li")
-        newComment.innerHTML = `<p>${commentInput}</p>
-                                <span class="commenter-name">Vincent</span>`//at this point, it assumes I'm logged in as "Vincent"
+        newComment.innerHTML = `<p>${commentObject.content}</p>
+                                <span class="commenter-name">${commentObject.commenterName || 'unknown'}</span>`
 
         document.getElementById('comment-list').appendChild(newComment)        
     }
 
-    function updateCommentCount(){
-        const commentCount = document.querySelector('#comment-count .count')
-        commentCount.textContent = parseInt(commentCount.textContent) + 1
+    function updateCommentCount(newCount){
+        document.querySelector('#comment-count .count').textContent = newCount
     }
     
 
@@ -160,9 +182,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     const playlistButtons = document.getElementById('playlist-buttons')
     Array.from(playlistButtons.children).forEach(playlistChoice => {
         playlistChoice.addEventListener('click', e=> {
-            console.log("button clicked: ", e.target)
             emptyPlaylistOnDisplay()
-
+            
             if(e.target.id === 'blues-rock-playlist'){
                 getAndLoadPlaylist('bluesRock')
             }else if(e.target.id === 'favorites-playlist'){
