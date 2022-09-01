@@ -7,13 +7,34 @@
         "likes": 0
     },
 
+    "recommendedForYou": [
+        {
+            "id": 1,
+            "songName":"Why Does It Take So Long To Say Goodbye",
+            "songArtist":"Joe Bonamassa",
+            "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+            "banner": "",
+            "likes": 20
+        }, 
+
+        {
+            "id": 1,
+            "songName":"I Need to See You Again",
+            "songArtist":"Natalia M. King",
+            "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+            "banner": "",
+            "likes": 20
+        }         
+    ],
+
     "favorites": [
         {
             "id": 1,
             "songPlaylistId": 6,
             "songName":"I Need to See You Again",
-            "songArtist":"Natalia M. King.mp3",
+            "songArtist":"Natalia M. King",
             "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+            "banner": "",
             "likes": 20
         },
         {
@@ -22,6 +43,7 @@
             "songName":"Do I Look Worried",
             "songArtist":"Tedeschi Trucks Band",
             "path":"./assets/songs/blues-rock/Do I look worried.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -30,6 +52,7 @@
             "songName":"I Put A Spell On You",
             "songArtist":"Garou",
             "path":"./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
+            "banner": "",
             "likes": 203
         }                
     ],
@@ -40,6 +63,7 @@
             "songName":"Cry Me A River",
             "songArtist":"China Moses",
             "path":"./assets/songs/blues-jazz/China Moses  - Cry Me a River.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -47,6 +71,7 @@
             "songName":"Your Heart Is Black As Night",
             "songArtist":"Chloé",
             "path":"./assets/songs/blues-jazz/Chloé - Your Heart Is As Black As Night.mp3",
+            "banner": "",
             "likes": 123
         },
         {
@@ -54,6 +79,7 @@
             "songName":"Invitation To The Blues",
             "songArtist":"Claudia Bettinaglio",
             "path":"./assets/songs/blues-jazz/Claudia Bettinaglio - Invitation To The Blues.mp3",
+            "banner": "",
             "likes": 421
         },
         {
@@ -61,6 +87,7 @@
             "songName":"Let's Straighten It Out",
             "songArtist":"Dave Riley",
             "path":"./assets/songs/blues-jazz/Dave Riley - Let's Straighten It Out.mp3",
+            "banner": "",
             "likes": 314
         },
         {
@@ -68,13 +95,15 @@
             "songName":"I Remember You",
             "songArtist":"Eilen Jewell",
             "path":"./assets/songs/blues-jazz/Eilen Jewell - I Remember You.mp3",
+            "banner": "",
             "likes": 157
         },
         {
             "id": 6,
             "songName":"I Need to See You Again",
-            "songArtist":"Natalia M. King.mp3",
+            "songArtist":"Natalia M. King",
             "path":"./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
+            "banner": "",
             "likes": 20
         },
         {
@@ -82,6 +111,7 @@
             "songName":"She's Crazy",
             "songArtist":"JT Coldfire",
             "path":"./assets/songs/blues-jazz/JT Coldfire - She_s Crazy.m4a",
+            "banner": "",
             "likes": 129
         },
         {
@@ -96,6 +126,7 @@
             "songName":"Damn Your Eyes",
             "songArtist":"Luce Dufault",
             "path":"./assets/songs/blues-jazz/Luce Dufault - Damn Your Eyes.mp3",
+            "banner": "",
             "likes": 245
         },
         {
@@ -103,6 +134,7 @@
             "songName":"I Love You More You'll Ever Know",
             "songArtist":"Oli Brown",
             "path":"./assets/songs/blues-jazz/Oli Brown - I Love You More You'll Ever Know.mp3",
+            "banner": "",
             "likes": 326
         }
     ],
@@ -128,6 +160,7 @@
             "songName":"A Virus Called The Blues",
             "songArtist":"China Moses",
             "path":"./assets/songs/blues-rock/Billy Jenkins - A Virus Called The Blues.m4a",
+            "banner": "",
             "likes": 203
         },
         {
@@ -142,6 +175,7 @@
             "songName":"Over You",
             "songArtist":"ZZ Top",
             "path":"./assets/songs/blues-rock/26. Over You.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -149,6 +183,7 @@
             "songName":"Do I Look Worried",
             "songArtist":"Tedeschi Trucks Band",
             "path":"./assets/songs/blues-rock/Do I look worried.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -156,6 +191,7 @@
             "songName":"I Put A Spell On You",
             "songArtist":"Garou",
             "path":"./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -163,6 +199,7 @@
             "songName":"I Need Time",
             "songArtist":"China Moses",
             "path":"./assets/songs/blues-rock/I Need Time CD 1 TRACK 3 (320).mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -170,6 +207,7 @@
             "songName":"I'm In A Dangerous Mood",
             "songArtist":"BB. King ft. Joe Cocker",
             "path":"./assets/songs/blues-rock/I'm in a dangerous mood.m4a",
+            "banner": "",
             "likes": 203
         },
         {
@@ -177,6 +215,7 @@
             "songName":"You Were Never Mine",
             "songArtist":"Janiva Magness",
             "path":"./assets/songs/blues-rock/Janiva Magness You Were Never Mine.mp3",
+            "banner": "",
             "likes": 203
         },
         {
@@ -191,6 +230,7 @@
             "songName":"Welcome To The Human Race",
             "songArtist":"Walter Trout",
             "path":"./assets/songs/blues-rock/The Outsider CD 1 TRACK 1 (320).mp3",
+            "banner": "",
             "likes": 203
         }
     ],
