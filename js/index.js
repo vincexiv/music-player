@@ -6,6 +6,9 @@ const apiHost = 'http://localhost:3000'
 document.addEventListener('DOMContentLoaded', () =>{
     let personName = 'unknown'
     
+
+    // handle a click to the log in button in the navbar -----------------------------------------------
+
     const logIn = document.getElementById('log-in')
     logIn.addEventListener('click', e =>{
 
@@ -37,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                 field.style.padding = '0.3rem'
                 field.style.marginTop = '0.5rem'
                 field.style.marginBottom = '0.5rem'
-            })
-     
+            })   
     
-        
+            
             logInForm.addEventListener('submit', e=> {
+                
                 e.preventDefault();
                 personName = logInForm.querySelector('#person-name').value
     
@@ -51,12 +54,17 @@ document.addEventListener('DOMContentLoaded', () =>{
                 logIn.classList.remove('not-logged-in')
             })
 
+
         
         }else {
+            logIn.classList.add('not-logged-in')
             location.reload()
         }    
     })
-    
+
+
+    // getting and loading stuff from database ------------------------------------------------------------------
+
 
     getAndLoadPlaylist("favorites")//by default, the favorites button active
     let firstTimeLoadingThePage = true //This and the firstSong variable below are used to make the first song in the favorites playlist to be put on "currentlyPlaying" when the page loads
@@ -186,10 +194,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    // Comment form ------------------------------------------------------
+    // Processing the comment form ------------------------------------------------------
 
     handleCommentForm()
     function handleCommentForm(){
+        if(personName == null){
+            alert('you have to log in first to comment on a song')
+        }
         const commentForm = document.getElementById('add-comment-form')
         commentForm.addEventListener('submit', e => {
             e.preventDefault()
@@ -244,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
     
 
-    // favorites (heart) button ------------------------------------------
+    // fprocessing the favorites (heart) button ------------------------------------------
 
     const favoriteSong = document.getElementById('favorite')
     favoriteSong.addEventListener('click', e => {
@@ -314,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    // Song list item ----------------------------------------------------
+    // processing the song list item ----------------------------------------------------
 
       function moveToCurrentlyPlaying(song, playlist){
         //This functions expects an <li></li> (not necessarily empty)
@@ -353,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    // playlist button ---------------------------------------------------
+    // processnig the playlist buttons ---------------------------------------------------
 
     const playlistButtons = document.getElementById('playlist-buttons')
     Array.from(playlistButtons.children).forEach(playlistChoice => {
