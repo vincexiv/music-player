@@ -17,7 +17,7 @@ nav {
 .container {
     color: var(--color-1);
 
-    width: 70%;
+    width: 80%;
     min-width: 40rem;
     margin: auto;
     display: flex;
@@ -48,7 +48,7 @@ nav ul li:hover {
 section {
     display: grid;
     place-items: center;
-    height: 34rem;
+    height: calc(100vh - 15rem);
 }
 
 .container #main-content {
@@ -329,8 +329,12 @@ footer .container {
 }
 
 footer .container div {
-    width: 10rem;
-    padding: 2rem;
+    width: 12rem;
+    min-height: 10rem;
+}
+
+footer .container div h2 {
+    padding-top: 2rem;
 }
 
 footer .container #about-us {
