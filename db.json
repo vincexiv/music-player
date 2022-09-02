@@ -97,7 +97,8 @@
       "songArtist": "Claudia Bettinaglio",
       "path": "./assets/songs/blues-jazz/Claudia Bettinaglio - Invitation To The Blues.mp3",
       "banner": "",
-      "likes": 421
+      "likes": 422,
+      "liked": true
     },
     {
       "id": 4,
@@ -105,7 +106,8 @@
       "songArtist": "Dave Riley",
       "path": "./assets/songs/blues-jazz/Dave Riley - Let's Straighten It Out.mp3",
       "banner": "",
-      "likes": 314
+      "likes": 314,
+      "liked": false
     },
     {
       "id": 5,
@@ -129,7 +131,8 @@
       "songArtist": "JT Coldfire",
       "path": "./assets/songs/blues-jazz/JT Coldfire - She_s Crazy.m4a",
       "banner": "",
-      "likes": 129
+      "likes": 130,
+      "liked": true
     },
     {
       "id": 8,
@@ -195,7 +198,8 @@
       "songName": "Vincent Price Blues",
       "songArtist": "ZZ Top",
       "path": "./assets/songs/blues-rock/20. Vincent Price Blues.mp3",
-      "likes": 145
+      "likes": 146,
+      "liked": true
     },
     {
       "id": 3,
@@ -211,7 +215,8 @@
       "songArtist": "Tedeschi Trucks Band",
       "path": "./assets/songs/blues-rock/Do I look worried.mp3",
       "banner": "",
-      "likes": 198
+      "likes": 198,
+      "liked": false
     },
     {
       "id": 5,
@@ -219,7 +224,8 @@
       "songArtist": "Garou",
       "path": "./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
       "banner": "",
-      "likes": 190
+      "likes": 191,
+      "liked": true
     },
     {
       "id": 6,
@@ -235,7 +241,8 @@
       "songArtist": "BB. King ft. Joe Cocker",
       "path": "./assets/songs/blues-rock/I'm in a dangerous mood.m4a",
       "banner": "",
-      "likes": 175
+      "likes": 175,
+      "liked": false
     },
     {
       "id": 8,
@@ -243,8 +250,8 @@
       "songArtist": "Janiva Magness",
       "path": "./assets/songs/blues-rock/Janiva Magness You Were Never Mine.mp3",
       "banner": "",
-      "likes": 157,
-      "liked": true
+      "likes": 156,
+      "liked": false
     },
     {
       "id": 9,
