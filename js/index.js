@@ -139,8 +139,29 @@ document.addEventListener('DOMContentLoaded', () =>{
             e.preventDefault()
 
             const newComment = e.target.querySelector('textarea').value
-            addCommentToDom({commenterName: "Vincent", content: newComment})
-            addOneToCommentCount(newComment)
+            const currentlyPlaying = document.getElementById('currently-playing')
+            const songPlaylist = currentlyPlaying.classList[0]
+            const songId = parseInt(currentlyPlaying.classList[1])
+
+            fetch(`${apiHost}/${songPlaylist}Comments`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        [`${songPlaylist}Id`]: songId,
+                        commenterName: 'Vincent',
+                        content: newComment
+                    }
+                )
+            })
+            .then(result => result.json())
+            .then(data => {
+                addCommentToDom(data)
+                addOneToCommentCount(newComment)
+            })
 
             commentForm.reset()
         })
