@@ -2,7 +2,7 @@ const apiHost = 'http://localhost:3000'
 
 document.addEventListener('DOMContentLoaded', () =>{
 
-    getAndLoadPlaylist("favorites")//by default, the "favorites playlist should be displayed"
+    getAndLoadPlaylist("favorites")//by default, the favorites button active
     let firstTimeLoadingThePage = true //This and the firstSong variable below are used to make the first song in the favorites playlist to be put on "currentlyPlaying" when the page loads
 
     
@@ -68,6 +68,15 @@ document.addEventListener('DOMContentLoaded', () =>{
         }        
     }
 
+    function updateLikeStatus(personLikesThisSong){       
+        const favoriteStatus = document.getElementById('favorite')
+        if(personLikesThisSong){
+            favoriteStatus.classList.remove('fa-regular')
+            favoriteStatus.classList.add('fa-solid')
+        }else{
+            favoriteStatus.classList.add('fa-regular')
+            favoriteStatus.classList.remove('fa-solid')           
+        }
     }
     
 
@@ -85,21 +94,22 @@ document.addEventListener('DOMContentLoaded', () =>{
         return playListItem
     }
 
+
     function addSongToDom(song, listId){
         document.getElementById(listId).appendChild(song)
     }
 
     function updateBanner(songData){
         const banner = document.getElementById('currently-playing-song-banner')
-
         if(songData.banner){
             banner.src = songData.banner
             banner.alt = songData.songArtist
         }else{
-            banner.src('./assets/images/Buddy Guy.png')  //buddy guy with the guitar is the default
-            banner.alt = 'Buddy Guy with the guitar'
+            banner.src = './assets/images/Buddy Guy.png'
+            banner.alt = 'buddy guy with the guitar'
         }
     }
+
 
     function updateDomComments(playlistName, songId){
         fetch(`${apiHost}/${playlistName}/${songId}?_embed=${playlistName}Comments`)
@@ -136,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
     }
 
+
     function addCommentToDom(commentObject){
         const newComment = document.createElement("li")
         newComment.innerHTML = `<p>${commentObject.content}</p>
@@ -144,9 +155,11 @@ document.addEventListener('DOMContentLoaded', () =>{
         document.getElementById('comment-list').appendChild(newComment)        
     }
 
+
     function loadCommentCount(newCount){
         document.querySelector('#comment-count .count').textContent = newCount
     }
+
 
     function addOneToCommentCount(){
         const currentCount = parseInt(document.querySelector('#comment-count .count').textContent)
@@ -217,10 +230,13 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // Song list item ----------------------------------------------------
 
-    function moveToCurrentlyPlaying(song){
+      function moveToCurrentlyPlaying(song, playlist){
         //This functions expects an <li></li> (not necessarily empty)
 
         const currentlyPlaying = document.getElementById('currently-playing')
+        currentlyPlaying.classList = ""
+        currentlyPlaying.classList.add(playlist)
+        currentlyPlaying.classList.add(song.id)
 
         currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
         currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
@@ -270,12 +286,14 @@ document.addEventListener('DOMContentLoaded', () =>{
             switchActiveButton(e.target, playlistButtons)
         })
     })
+
     
     getAndLoadPlaylist('recommendedForYou', 'recommended-for-you')
 
     function emptyPlaylistOnDisplay(){
         document.getElementById('play-list-items').innerHTML = ''
     }
+
 
     function switchActiveButton(buttonToMakeActive, allPlaylistButtons){
         buttonToMakeActive.classList.add('active')
@@ -290,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // playing the songs -------------------------------------------------
 
-    (function playSong(){
+    function playSong(pathToSong){
         pathToSong = './assets/music/blues-jazz/Eilen Jewell - I Remember You.mp3'
         const audio  = new Audio()
         audio.src = pathToSong
@@ -307,13 +325,12 @@ document.addEventListener('DOMContentLoaded', () =>{
                 audio.pause()                
             }
         })
-    })()
+    }
+
     
     function showSongProgress(audio){
         document.getElementById('song-progress').end = parseInt(audio.duration)
-        
-        console.log(document.getElementById('song-progress'))
-        
+               
         document.getElementById('song-progress').value = 0
         setInterval(() =>{
             document.getElementById('song-progress').value = audio.currentTime/audio.duration * 100
