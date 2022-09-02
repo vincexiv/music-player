@@ -16,8 +16,9 @@ nav {
 
 .container {
     color: var(--color-1);
-    width: 60rem;
-    min-width: 37.5rem;
+
+    width: 70%;
+    min-width: 40rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
