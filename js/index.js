@@ -5,6 +5,7 @@ const apiHost = 'http://localhost:3000'
 
 document.addEventListener('DOMContentLoaded', () =>{
     let personName = 'unknown'
+    const previouslyPlayedSongs = []
     
 
     // handle a click to the log in button in the navbar -----------------------------------------------
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     logIn.addEventListener('click', e =>{
 
         if(logIn.classList.contains('not-logged-in')){
-            console.log('i was clicked')
             logInForm = document.createElement('form')
             logInForm.innerHTML = `
             <label for="person-name">Username</label>
@@ -422,6 +422,12 @@ document.addEventListener('DOMContentLoaded', () =>{
                 audio.pause()                
             }
         })
+
+        previouslyPlayedSongs.push(
+            {
+                audio: audio,
+            }
+        )
     }
 
     
