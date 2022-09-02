@@ -5,37 +5,72 @@ document.addEventListener('DOMContentLoaded', () =>{
     getAndLoadPlaylist("favorites")//by default, the "favorites playlist should be displayed"
     let firstTimeLoadingThePage = true //This and the firstSong variable below are used to make the first song in the favorites playlist to be put on "currentlyPlaying" when the page loads
 
+    
     function getAndLoadPlaylist(playlistName, listId = 'play-list-items'){
-        fetch(`${apiHost}/${playlistName}`)
-        .then(result => result.json())
-        .then(data => {
-            let firstSong;
-            data.forEach(songData => {
-                const song = createPlayListItem(songData, playlistName)
-                               
-                addSongToDom(song, listId)
-                song.addEventListener('click', e => {
-                    moveToCurrentlyPlaying(song)
-                    updateUpNext(song)
-                    updateBanner(songData)
-                    updateDomComments(playlistName, songData.id)
-                    loadLikes(songData.likes)
 
-                    playSong(songData.path)
+        if(playlistName === 'favorites'){
+
+            fetch(`${apiHost}/bluesJazz`)
+            .then(result => result.json())
+            .then(bluesazzPlaylist => {
+                const favoritedBluesJazzSongs = bluesazzPlaylist.filter(song => {
+                    return song.liked == true;
                 })
 
-                if(firstTimeLoadingThePage){
-                    firstSong = song
-                    firstTimeLoadingThePage = false 
-                }
+                handleDatabaseReturnValues(favoritedBluesJazzSongs, 'bluesJazz', 'play-list-items')
+
+                fetch(`${apiHost}/bluesRock`)
+                .then(result => result.json())
+                .then(bluesRockPlaylist => {
+                    const favoritedBluesRockSongs = bluesRockPlaylist.filter(song => {
+                        return song.liked == true;
+                    })
+
+                    handleDatabaseReturnValues(favoritedBluesRockSongs, 'bluesRock', 'play-list-items')
+                })
             })
 
-            if(firstSong){
-                firstSong.click() 
+        }else {
+            fetch(`${apiHost}/${playlistName}`)
+            .then(result => result.json())
+            .then(data => {
+                handleDatabaseReturnValues(data, playlistName, listId)
+            })
+        }
+    }
+
+
+    function handleDatabaseReturnValues(data, playlistName, listId){
+        let firstSong;
+        data.forEach(songData => {
+            const song = createPlayListItem(songData, playlistName)
+                           
+            addSongToDom(song, listId)
+            song.addEventListener('click', e => {
+                moveToCurrentlyPlaying(song, playlistName)
+                updateUpNext(song)
+                updateBanner(songData)
+                updateDomComments(playlistName, songData.id)
+                loadLikes(songData.likes)
+                updateLikeStatus(songData.liked)
+
+                playSong(songData.path)
+            })
+
+            if(firstTimeLoadingThePage){
+                firstSong = song
+                firstTimeLoadingThePage = false 
             }
         })
+
+        if(firstSong){
+            firstSong.click() 
+        }        
+    }
+
     }
     
+
     function createPlayListItem(songData, playlistName='favorites'){
         const playListItem = document.createElement('li')
         playListItem.classList.add('song')
