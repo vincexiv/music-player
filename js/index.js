@@ -158,42 +158,59 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const favoriteSong = document.getElementById('favorite')
     favoriteSong.addEventListener('click', e => {
+        
+        const currentlyPlaying = document.getElementById('currently-playing')
+        const songPlaylist = currentlyPlaying.classList[0]
+        const songId = currentlyPlaying.classList[1]
 
-        let increaseLikeCount = false
-        if(personLikesThisSong(e.target)){
-            unlikeSong(e.target)
+        let songIsBeingLiked;
+        if(personAlreadyLikesThisSong(e.target)){
+            songIsBeingLiked = false
         }else{
-            likeSong(e.target)
-            increaseLikeCount = true
+            songIsBeingLiked = true
         }
 
-        updateLikeCount(increaseLikeCount)
+        const likeCount = newNoOfLikes(songIsBeingLiked)
+        fetch(`${apiHost}/${songPlaylist}/${songId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    liked: songIsBeingLiked,
+                    likes: likeCount
+                }
+            )
+        })
+        .then(result => result.json())
+        .then(data => {
+            if(favoritesButtonIsActive()){
+                document.getElementById('play-list-items').innerHTML = ''
+                getAndLoadPlaylist('favorites')
+            }
+            updateLikeStatus(songIsBeingLiked)
+            loadLikes(data.likes)
+        })
     })
 
-    function personLikesThisSong(heartIcon){
+    function favoritesButtonIsActive(){
+        return document.getElementById('favorites-playlist').classList.contains('active')
+    }
+
+
+    function personAlreadyLikesThisSong(heartIcon){
         return heartIcon.classList.contains('fa-solid'); 
     }
 
-    function likeSong(heartIcon){
-        if(heartIcon.classList.contains('fa-regular')){
-            heartIcon.classList.remove('fa-regular')
-            heartIcon.classList.add('fa-solid')
-        }
-    }
 
-    function unlikeSong(heartIcon){
-        if(heartIcon.classList.contains('fa-solid')){
-            heartIcon.classList.remove('fa-solid')
-            heartIcon.classList.add('fa-regular')
-        }
-    }
-
-    function updateLikeCount(increaseLikeCount){
+    function newNoOfLikes(songIsBeingLiked){
         const count = document.querySelector('#like-count .count')
-        if(increaseLikeCount){
-            count.textContent = parseInt(count.textContent) + 1
+        if(songIsBeingLiked){
+            return parseInt(count.textContent) + 1
         }else{
-            count.textContent = parseInt(count.textContent) - 1
+            return parseInt(count.textContent) - 1
         }
     }
 
@@ -208,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
         currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
     }
+
 
     function updateUpNext(song){
         //updates list of songs marked to play next
