@@ -199,17 +199,26 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
         .then(result => result.json())
         .then(data => {
-            if(favoritesButtonIsActive()){
-                document.getElementById('play-list-items').innerHTML = ''
-                getAndLoadPlaylist('favorites')
-            }
+            const activeButton = getActiveButton()
+            
+            document.getElementById('play-list-items').innerHTML = ''
+            getAndLoadPlaylist(activeButton)
+            
             updateLikeStatus(songIsBeingLiked)
             loadLikes(data.likes)
         })
     })
 
-    function favoritesButtonIsActive(){
-        return document.getElementById('favorites-playlist').classList.contains('active')
+    function getActiveButton(){
+        if(document.getElementById('favorites-playlist').classList.contains('active')){
+            return 'favorites'
+        }else if(document.getElementById('blues-rock-playlist').classList.contains('active')){
+            return 'bluesRock'
+        }else if(document.getElementById('blues-jazz-playlist').classList.contains('active')){
+            return 'bluesJazz'
+        }else{
+            return 'recommendedForYou'
+        }
     }
 
 
