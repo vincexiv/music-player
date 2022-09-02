@@ -26,3 +26,12 @@
 .list-style-none {list-style: none;}
 
 .display-none {display: none;}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
