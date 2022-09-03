@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             addSongToDom(song, listId)
             song.addEventListener('click', e => {
                 moveToCurrentlyPlaying(song, playlistName)
+                updateRecommendedForYou(song)
                 updateUpNext(song)
                 updateBanner(songData)
                 updateDomComments(playlistName, songData.id)
@@ -410,6 +411,77 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     
     getAndLoadPlaylist('recommendedForYou', 'recommended-for-you')
+
+    function updateRecommendedForYouAndLoad(songId, newSong){
+        fetch(`${apiHost}/recommendedForYou/${songId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body:JSON.stringify(newSong)
+        })
+        .then(result => result.json())
+        .then((data) => {
+            const dataArr = [data]
+            handleDatabaseReturnValues(dataArr, 'recommendedForYou', 'recommended-for-you')
+        })
+    }
+
+
+    function updateRecommendedForYou(currentlyPlaying){
+        const songArtist = currentlyPlaying.querySelector('.artist-name').textContent
+
+        fetch(`http://www.songsterr.com/a/ra/songs/byartists.json?artists="${songArtist}"`)
+        .then(result => result.json())
+        .then(data => {
+            const randomStartPosition = getRandomStartPosition(data.length)
+            const ourPick = data.slice(randomStartPosition, randomStartPosition + 3)
+
+            removeSomeDisplayedSongs('recommended-for-you', ourPick.length)//create space for the new songs we'll be adding
+
+            if(ourPick){
+                let songId = 1;
+                for(song of ourPick){
+                    const dataObject = createDataObject(song)
+                    updateRecommendedForYouAndLoad(songId, dataObject)
+                    songId++
+                }
+            }
+        })
+    }
+
+
+    function getRandomStartPosition(maxEndPosition){
+        const maxStartPosition = maxEndPosition - 3 //because we are only picking 3 songs in what will be returned
+        return Math.floor(Math.random()*maxStartPosition)
+    }
+
+
+    console.log("random start position: ", getRandomStartPosition(10))
+
+    function removeSomeDisplayedSongs(domPlaylistId, noOfSongs){
+        console.log(domPlaylistId, noOfSongs)
+        for(let i = 0; i < noOfSongs; i++){
+            const songToRemove = document.getElementById(domPlaylistId).children[i]
+            if(songToRemove){
+                songToRemove.remove()
+            }
+        }
+    }
+
+
+    function createDataObject(song){
+        return {
+            songArtist: song.artist.name,
+            songName: song.title,
+            liked:false,
+            likes:0,
+            path: "",
+            banner: ""
+        } 
+    }
+    
 
     function emptyPlaylistOnDisplay(){
         document.getElementById('play-list-items').innerHTML = ''
