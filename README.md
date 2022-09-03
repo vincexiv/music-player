@@ -1,4 +1,4 @@
-#VintageBeats Web App Landing Page
+# VintageBeats Web App Landing Page
 
 ## Brief Description
 Thisis the landing page for VintageBeats music website, a place where you get to explore some of the most awesome music gems and everything drawing inspiration from them
@@ -7,7 +7,7 @@ Thisis the landing page for VintageBeats music website, a place where you get to
 September 3, 2022
 
 ## Live Link
-Here is a link to the live demo. Please note that a few things may not work as the site is dependent on json-server to load and render certain files.
+Here is a link to the live demo. Please note that a few things may not work as the site is dependent on json-server to load and render certain files. A better way to experience the project is `git clone`ing the repo and following the steps outlined in [Setup Instructions] (## Setup Instructions)
 (https://vincexiv.github.io/music-player)
 
 ### By
