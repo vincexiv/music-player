@@ -80,14 +80,17 @@ document.addEventListener('DOMContentLoaded', () =>{
                 
             e.preventDefault();
             personName = logInForm.querySelector('#person-name').value
+            personPassword = logInForm.querySelector('#person-password').value
 
-            if(onlyLettersAndNumbers(personName)){                
+            if(!personName || !personPassword){
+                alert('AN ERROR OCCURRED\nname or password cannot be empty')
+            }else if(onlyLettersAndNumbers(personName)){                
                 alert(`You are logged in as ${personName}`)
                 logInForm.remove()
                 logIn.textContent = "Log Out"
                 logIn.classList.remove('not-logged-in')
             }else{
-                alert('AN ERROR OCCURRED\nname should only contain letters and numbers')
+                alert('AN ERROR OCCURRED\nname should only contain letters and numbers\nnote: remember not to include spaces')
             }
         })
     }
@@ -529,6 +532,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             }, 1)
 
             showClickingWillPauseSong()
+        }else {
+            alert("CAN'T PLAY SONG\nsorry. It\'s not you, it\'s me..")
         }
     }
 
