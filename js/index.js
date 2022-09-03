@@ -14,57 +14,81 @@ document.addEventListener('DOMContentLoaded', () =>{
     logIn.addEventListener('click', e =>{
 
         if(logIn.classList.contains('not-logged-in')){
-            logInForm = document.createElement('form')
-            logInForm.innerHTML = `
-            <label for="person-name">Username</label>
-            <input type="text" id="person-name" name="person-name">
-            <label for="person-password">Name</label>
-            <input type="text" id="person-password" name="person-password">
-            <input type="submit" value="submit" class="btn">`
-    
-            
+            logInForm = createLogInForm()          
             document.querySelector('section').append(logInForm)
-            logInForm.style.backgroundColor = '#190204'
-            logInForm.style.fontSize = '0.8rem'
-            logInForm.style.color = 'white'
-            logInForm.style.padding = '1rem'
-            logInForm.style.opacity = '0.7'
-            logInForm.style.position = 'fixed'
-            logInForm.style.top = '4rem'
-            logInForm.style.right = '10%'
+            styleTheLogInForm(logInForm)
     
             const inputFields = logInForm.querySelectorAll('input')
             inputFields.forEach(field =>{
-                field.style.border = 'none'
-                field.style.outline = 'none'
-                field.style.padding = '0.3rem'
-                field.style.marginTop = '0.5rem'
-                field.style.marginBottom = '0.5rem'
+                styleLogInFormInputFields(field)
             })   
     
-            
-            logInForm.addEventListener('submit', e=> {
-                
-                e.preventDefault();
-                personName = logInForm.querySelector('#person-name').value
-    
-                alert(`You are logged in as ${personName}`)
-                logInForm.remove()
-                logIn.textContent = "Log Out"
-                logIn.classList.remove('not-logged-in')
-            })
+            handleActivityOnTheLogInForm(logInForm)
 
-
-        
         }else {
-            logIn.classList.add('not-logged-in')
-            location.reload()
+            location.reload()            
         }    
     })
 
 
-    // getting and loading stuff from database ------------------------------------------------------------------
+    function createLogInForm(){
+        const logInForm = document.createElement('form')
+        logInForm.innerHTML = `
+        <label for="person-name">Username</label>
+        <input type="text" id="person-name" name="person-name">
+        <label for="person-password">Name</label>
+        <input type="text" id="person-password" name="person-password">
+        <input type="submit" value="submit" class="btn">`
 
+        return logInForm
+    }
+
+
+    function onlyLettersAndNumbers(personName) {
+        return /^[A-Za-z0-9]*$/.test(personName);
+    }
+
+
+    function styleTheLogInForm(logInForm){
+        logInForm.style.backgroundColor = '#190204'
+        logInForm.style.fontSize = '0.8rem'
+        logInForm.style.color = 'white'
+        logInForm.style.padding = '1rem'
+        logInForm.style.opacity = '0.7'
+        logInForm.style.position = 'fixed'
+        logInForm.style.top = '4rem'
+        logInForm.style.right = '10%'
+    }
+
+
+    function styleLogInFormInputFields(field){
+        field.style.border = 'none'
+        field.style.outline = 'none'
+        field.style.padding = '0.3rem'
+        field.style.marginTop = '0.5rem'
+        field.style.marginBottom = '0.5rem'
+    }
+
+
+    function handleActivityOnTheLogInForm(logInForm){
+        logInForm.addEventListener('submit', e=> {
+                
+            e.preventDefault();
+            personName = logInForm.querySelector('#person-name').value
+
+            if(onlyLettersAndNumbers(personName)){                
+                alert(`You are logged in as ${personName}`)
+                logInForm.remove()
+                logIn.textContent = "Log Out"
+                logIn.classList.remove('not-logged-in')
+            }else{
+                alert('AN ERROR OCCURRED\nname should only contain letters and numbers')
+            }
+        })
+    }
+
+
+    // getting and loading stuff from database ------------------------------------------------------------------
 
     getAndLoadPlaylist("favorites")//by default, the favorites button active
     let firstTimeLoadingThePage = true //This and the firstSong variable below are used to make the first song in the favorites playlist to be put on "currentlyPlaying" when the page loads
