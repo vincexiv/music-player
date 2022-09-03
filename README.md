@@ -16,7 +16,7 @@ Here is a link to the live demo. Please note that a few things may not work as t
 ## Description
 This is a music website that provides more than just music. Some of the functionalities provided by the site include;
 
-#### Log In
+### Log In
 A person needs not to sign up to enable this functionality as it is just a mock at this point. Just do the following to log in
 1. Click on the "Log In" button
 2. A form will appear, type any name you can think of as long as it only contains letters and numbers. Note that the log in will not be successful if spaces are included in the user name
@@ -27,7 +27,7 @@ Note that logging in will also fail if one of the fields are empty when submitti
 
 Once logged in, I hope you'll notice that when you comment on songs, the new comment shows with the name you logged in tagged beneath the message. Cool, right?
 
-#### Play Songs
+### Play Songs
 Not all the songs shown in the playlists are playable, here are the selected songs that you would be able to play after correctly setting up the project.
 1. **Invitation To The Blues - Claudia Bettinaglio**
 2. **Feels Like Rain - Buddy Guy**
@@ -47,18 +47,18 @@ const availablePlayableSongs = {
 }
 ```
 
-#### Checkout Different Playlists
+### Checkout Different Playlists
 There are five playlists provided in the site; **favorites, blues/jazz, blues/rock**, and **recommended for you** playlists. As at now, a user will not be able to create their own playlists. However, they can populate the **favorites** playlist by favoriting songs. This can be done by clicking on the heart icon that sits besides the song name at the center of the page. Unfavoriting the song removes it from the **favorites** playlist
 
-#### Get new songs recommended for them
+### Get new songs recommended for them
 The **recommended for you** section provides a list of songs that are recommended to the user based on the current songs on the **currently playing** section. That is, the song at the center of the page in huge font with audio controls beneath it. When a user clicks on a song, other songs sang by the artist of the currently playing song are fetched from the **songsterr.com** api, and three random music sample obtained from the list returned and appended to the **recommended for you** section. It is worth noting that the api does not always return a list full of songs since they sometimes do not have the songs by certain artists. Under such circumstances, the **recommended for you** section is not updated. Another thing to note is that as new songs are added to the **recommended for you** sections, same amount of songs are removed to give space in a first come first serve basis.
 
-#### favorite songs
+### favorite songs
 Favoriting a song, as mentioned earlier, adds it to the **favorites** playlist. It is also persisted when the json-server is on as the file will be updated. Favoriting a song also increases the number of likes received by the song as indicated in the area below the **currently playing** song and just above the Add Comment Input form.
 
 It is worth noting that favoriting songs obtained from the **recommended for you** section does not change its like status or like count as this functionality has not been implemented yet.
 
-#### Comment on Songs
+### Comment on Songs
 When a user is logged in, commenting on a song will add the comment to the song with the name they logged in with as the person commenting. If they are not logged in, this comment will be tagged with the name "unknown", showing that the person making that comment is unknown.
 
 Comments, like favoriting, is persistent when running with json-server, thus upon refreshing the browser, the comments will still show
