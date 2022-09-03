@@ -34,46 +34,7 @@
       "likes": 532
     }
   ],
-  "favorites": [
-    {
-      "id": 1,
-      "songPlaylist": "bluesJazz",
-      "songPlaylistId": 6,
-      "songName": "I Need to See You Again",
-      "songArtist": "Natalia M. King",
-      "path": "./assets/songs/blues-jazz/I Need to See You Again - Natalia M. King.mp3",
-      "banner": "",
-      "likes": 352
-    },
-    {
-      "id": 2,
-      "songPlaylist": "bluesRock",
-      "songPlaylistId": 4,
-      "songName": "Do I Look Worried",
-      "songArtist": "Tedeschi Trucks Band",
-      "path": "./assets/songs/blues-rock/Do I look worried.mp3",
-      "banner": "",
-      "likes": 134
-    },
-    {
-      "id": 3,
-      "songPlaylist": "bluesRock",
-      "songPlaylistId": 5,
-      "songName": "I Put A Spell On You",
-      "songArtist": "Garou",
-      "path": "./assets/songs/blues-rock/Garou - I Put a Spell on You.mp3",
-      "banner": "",
-      "likes": 155
-    }
-  ],
-  "favoritesComments": [
-    {
-      "id": 1,
-      "favoriteId": 1,
-      "commenterName": "Rachel",
-      "content": "Am so emoshonoo 😭😭😭"
-    }
-  ],
+  
   "bluesJazz": [
     {
       "id": 1,
