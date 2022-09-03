@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         logInForm.innerHTML = `
         <label for="person-name">Username</label>
         <input type="text" id="person-name" name="person-name">
-        <label for="person-password">Name</label>
+        <label for="person-password">Password</label>
         <input type="text" id="person-password" name="person-password">
         <input type="submit" value="submit" class="btn">`
 
