@@ -516,7 +516,6 @@ document.addEventListener('DOMContentLoaded', () =>{
         const playPauseButton = document.getElementById('play-pause-button')
 
         playPauseButton.addEventListener('click', e => {
-            console.log(document.getElementById('currently-playing'))
             if(playPauseButton.classList.contains('fa-circle-play')){
                 playSong(document.querySelector('.song-name h1').textContent)
             }else {
