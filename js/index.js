@@ -1,13 +1,18 @@
 const apiHost = 'http://localhost:3000'
-
+let personName = 'unknown'
+let intervalId
+const availablePlayableSongs = {
+    "Invitation To The Blues": new Audio('./assets/music/blues-jazz/Claudia Bettinaglio - Invitation To The Blues.mp3'),
+    "Feels Like Rain": new Audio('./assets/music/blues-jazz/03 Feels Like Rain.mp3'),
+    "Don't Write Me Off": new Audio("./assets/music/blues-jazz/Don't Write Me Off.mp3"),
+    "I Remember You": new Audio('assets/music/blues-jazz/Eilen Jewell - I Remember You.mp3'),
+    "A Virus Called The Blues": new Audio('assets/music/blues-rock/Billy Jenkins - A Virus Called The Blues.m4a')
+}
 
 
 
 document.addEventListener('DOMContentLoaded', () =>{
-    let personName = 'unknown'
-    const previouslyPlayedSongs = []
-    
-
+  
     // handle a click to the log in button in the navbar -----------------------------------------------
 
     const logIn = document.getElementById('log-in')
@@ -143,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 loadLikes(songData.likes)
                 updateLikeStatus(songData.liked)
 
-                playSong(songData.path)
+                stopCurrentlyPlayingSongs()
             })
 
             if(firstTimeLoadingThePage){
@@ -458,10 +463,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-    console.log("random start position: ", getRandomStartPosition(10))
-
     function removeSomeDisplayedSongs(domPlaylistId, noOfSongs){
-        console.log(domPlaylistId, noOfSongs)
         for(let i = 0; i < noOfSongs; i++){
             const songToRemove = document.getElementById(domPlaylistId).children[i]
             if(songToRemove){
@@ -481,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             banner: ""
         } 
     }
-    
+
 
     function emptyPlaylistOnDisplay(){
         document.getElementById('play-list-items').innerHTML = ''
@@ -501,38 +503,75 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // playing the songs -------------------------------------------------
 
-    function playSong(pathToSong){
-        pathToSong = './assets/music/blues-jazz/Eilen Jewell - I Remember You.mp3'
-        const audio  = new Audio()
-        audio.src = pathToSong
-        const playButton = document.getElementById('play-pause-button')
-        playButton.addEventListener('click', e => {
-            if(playButton.classList.contains('fa-circle-play')){
-                playButton.classList.remove('fa-circle-play')
-                playButton.classList.add('fa-circle-pause')
-                audio.play()
-                showSongProgress(audio)
+    (function playPauseSong(){
+        const playPauseButton = document.getElementById('play-pause-button')
+
+        playPauseButton.addEventListener('click', e => {
+            console.log(document.getElementById('currently-playing'))
+            if(playPauseButton.classList.contains('fa-circle-play')){
+                playSong(document.querySelector('.song-name h1').textContent)
             }else {
-                playButton.classList.remove('fa-circle-pause')
-                playButton.classList.add('fa-circle-play')
-                audio.pause()                
+                pauseSong(document.querySelector('.song-name h1').textContent, intervalId)    
             }
         })
+    })()
+    
+    function playSong(songName){
+        if(availablePlayableSongs[songName]){
+            availablePlayableSongs[songName].play()
 
-        previouslyPlayedSongs.push(
-            {
-                audio: audio,
-            }
-        )
+            // showSongProgress(availablePlayableSongs[songName])
+            document.getElementById('song-progress').end = parseInt(availablePlayableSongs[songName])
+               
+            document.getElementById('song-progress').value = availablePlayableSongs[songName].currentTime || 0
+            intervalId = setInterval(() =>{
+                document.getElementById('song-progress').value = availablePlayableSongs[songName].currentTime / availablePlayableSongs[songName].duration * 100
+            }, 1)
+
+            showClickingWillPauseSong()
+        }
     }
 
-    
-    function showSongProgress(audio){
-        document.getElementById('song-progress').end = parseInt(audio.duration)
-               
-        document.getElementById('song-progress').value = 0
-        setInterval(() =>{
-            document.getElementById('song-progress').value = audio.currentTime/audio.duration * 100
-        }, 1)
+    function pauseSong(songName, intervalId){
+        if(availablePlayableSongs[songName]){
+            availablePlayableSongs[songName].pause()
+            clearInterval(intervalId)
+
+            // update the icons to show the song is being played
+            const playPauseButton = document.getElementById('play-pause-button')
+            playPauseButton.classList.remove('fa-circle-pause')
+            playPauseButton.classList.add('fa-circle-play')
+        }        
+    }
+ 
+    function stopCurrentlyPlayingSongs(){
+        const playButton = document.getElementById('play-pause-button')
+
+        for(audio in availablePlayableSongs){
+            if(!audio.paused){
+                availablePlayableSongs[audio].pause()
+                // playButton.click()
+                showClickingWillStartSong()
+                clearInterval(intervalId)
+            }
+        }
+    }
+
+    function showClickingWillPauseSong(){
+        const playPauseButton = document.getElementById('play-pause-button')
+        
+        if(playPauseButton.classList.contains('fa-circle-play')){
+            playPauseButton.classList.remove('fa-circle-play')
+            playPauseButton.classList.add('fa-circle-pause') 
+        }
+    }
+
+    function showClickingWillStartSong(){
+        const playPauseButton = document.getElementById('play-pause-button')
+        
+        if(playPauseButton.classList.contains('fa-circle-pause')){
+            playPauseButton.classList.add('fa-circle-play')
+            playPauseButton.classList.remove('fa-circle-pause') 
+        }
     }
 })
