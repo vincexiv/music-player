@@ -362,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
       function moveToCurrentlyPlaying(song, playlist){
         //This functions expects an <li></li> (not necessarily empty)
+        stopCurrentlyPlayingSongs()
 
         const currentlyPlaying = document.getElementById('currently-playing')
         currentlyPlaying.classList = ""
@@ -371,11 +372,16 @@ document.addEventListener('DOMContentLoaded', () =>{
         currentlyPlaying.querySelector('.song-name h1').textContent = song.querySelector('p').textContent
         currentlyPlaying.querySelector('.artist-name').textContent = `- ${song.querySelector('.artist-name').textContent}`
 
-        const songCurrentTime = parseInt(availablePlayableSongs[song.querySelector('p').textContent].currentTime)
-        const songDuration = parseInt(availablePlayableSongs[song.querySelector('p').textContent].duration)
-        const songProgress = songCurrentTime/songDuration * 100
+        if(Object.keys(availablePlayableSongs).includes(song.querySelector('p').textContent)){
+            const songCurrentTime = parseInt(availablePlayableSongs[song.querySelector('p').textContent].currentTime)
+            const songDuration = parseInt(availablePlayableSongs[song.querySelector('p').textContent].duration)
+            const songProgress = songCurrentTime/songDuration * 100
+            document.getElementById('song-progress').value = songProgress
+        }else{
+            document.getElementById('song-progress').value = songProgress = 0
+        }
 
-        document.getElementById('song-progress').value = songProgress || 0
+
     }
 
 
