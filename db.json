@@ -63,12 +63,12 @@
     },
     {
       "id": 4,
-      "songName": "Let's Straighten It Out",
-      "songArtist": "Dave Riley",
-      "path": "./assets/songs/blues-jazz/Dave Riley - Let's Straighten It Out.mp3",
+      "songName": "Don't Write Me Off",
+      "songArtist": "Mighty Sam McClain",
+      "path": "./assets/music/blues-jazz/Don't Write Me Off.mp3",
       "banner": "",
       "likes": 314,
-      "liked": false
+      "liked": true
     },
     {
       "id": 5,
