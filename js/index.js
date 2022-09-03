@@ -519,6 +519,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
     })()
     
+
     function playSong(songName){
         if(availablePlayableSongs[songName]){
             availablePlayableSongs[songName].play()
@@ -529,6 +530,9 @@ document.addEventListener('DOMContentLoaded', () =>{
             document.getElementById('song-progress').value = availablePlayableSongs[songName].currentTime || 0
             intervalId = setInterval(() =>{
                 document.getElementById('song-progress').value = availablePlayableSongs[songName].currentTime / availablePlayableSongs[songName].duration * 100
+                if(document.getElementById('song-progress').value == 100){
+                    showClickingWillPlaySong()
+                }
             }, 1)
 
             showClickingWillPauseSong()
@@ -536,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             alert("CAN'T PLAY SONG\nsorry. It\'s not you, it\'s me..")
         }
     }
+
 
     function pauseSong(songName, intervalId){
         if(availablePlayableSongs[songName]){
@@ -549,18 +554,19 @@ document.addEventListener('DOMContentLoaded', () =>{
         }        
     }
  
+
     function stopCurrentlyPlayingSongs(){
         const playButton = document.getElementById('play-pause-button')
 
         for(audio in availablePlayableSongs){
             if(!audio.paused){
                 availablePlayableSongs[audio].pause()
-                // playButton.click()
-                showClickingWillStartSong()
+                showClickingWillPlaySong()
                 clearInterval(intervalId)
             }
         }
     }
+
 
     function showClickingWillPauseSong(){
         const playPauseButton = document.getElementById('play-pause-button')
@@ -571,7 +577,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
     }
 
-    function showClickingWillStartSong(){
+
+    function showClickingWillPlaySong(){
         const playPauseButton = document.getElementById('play-pause-button')
         
         if(playPauseButton.classList.contains('fa-circle-pause')){
