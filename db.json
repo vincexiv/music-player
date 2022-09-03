@@ -34,7 +34,6 @@
       "likes": 532
     }
   ],
-  
   "bluesJazz": [
     {
       "id": 1,
@@ -157,10 +156,11 @@
     {
       "id": 1,
       "songName": "A Virus Called The Blues",
-      "songArtist": "China Moses",
+      "songArtist": "Billy Jenkins",
       "path": "./assets/songs/blues-rock/Billy Jenkins - A Virus Called The Blues.m4a",
       "banner": "",
-      "likes": 213
+      "likes": 214,
+      "liked": true
     },
     {
       "id": 2,
