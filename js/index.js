@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 logIn.textContent = "Log Out"
                 logIn.classList.remove('not-logged-in')
             }else{
-                alert('AN ERROR OCCURRED\nname should only contain letters and numbers\nnote: remember not to include spaces')
+                alert('AN ERROR OCCURRED\nname should only contain alphanumeric characters\nnote: remember not to include spaces')
             }
         })
     }
@@ -548,7 +548,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
             showClickingWillPauseSong()
         }else {
-            alert("CAN'T PLAY SONG\nsorry. It\'s not you, it\'s me..")
+            alert("CAN'T PLAY THAT SONG\nsorry. It\'s not you, it\'s me..")
         }
     }
 
