@@ -7,7 +7,7 @@ Thisis the landing page for VintageBeats music website, a place where you get to
 September 3, 2022
 
 ## Live Link
-[Here is the live demo](https://vincexiv.github.io/music-player). Please note that a few things may not work as the site is dependent on json-server to load and render certain files. A better way to experience the project is `git clone`ing the repo and following the steps outlined in the Set Up Instructions section.
+[Here is the live link](https://vincexiv.github.io/music-player) hosted in gh-pages. Please note that a few things may not work as the site is dependent on json-server to load and render certain files. A better way to experience the project is `git clone`ing the repo and following the steps outlined in the Set Up Instructions section.
 
 ## Live Demo
 Watch the project in action through through this [demo video](https://drive.google.com/file/d/1r_18BcOU47TOF1nop4lFQK6YNIXkoDA7/view?usp=sharing)
